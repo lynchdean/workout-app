@@ -8,8 +8,11 @@ type Props = {
 
 function FlatListItem({title}: Props) {
     return (
-      <View style={styles.item}>
-        <Text style={styles.title}>{title}</Text>
+      <View>
+        <View style={styles.item}>
+          <Text style={styles.title}>{title}</Text>
+        </View>
+        <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       </View>
     )
 }
@@ -17,15 +20,15 @@ function FlatListItem({title}: Props) {
 const styles = StyleSheet.create({
   item: {
     backgroundColor: '#f9c2ff',
-    alignSelf: 'stretch',
-    textAlign: 'center',
-    flex: 1,
     padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
   },
   title: {
+    textAlign: 'center',
     fontSize: 32,
+  },
+  separator: {
+    height: 1,
+    width: '80%',
   },
 });
 
