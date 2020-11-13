@@ -4,24 +4,22 @@ import { FlatList } from 'react-native-gesture-handler';
 
 import { Text, View } from '../components/Themed';
 import Workout from '../components/Workout';
+import FlatListItem from '../components/FlatListItem'
 
 export default function TabOneScreen() {
   const [workouts, setWorkouts] = useState<Workout[]>([]);
 
   const NewWorkout = () => {
     const id: string = (workouts.length + 1).toString();
-    const name: string = 'Workout ' + id;
-    const newWorkout = new Workout(name, id);
-
+    const newWorkout = new Workout('Workout ' + id, id);
     setWorkouts([...workouts, newWorkout]);
-    console.log(workouts);
   }
 
   return (
     <View style={styles.container}>
       <FlatList<Workout>
         data={workouts}
-        renderItem={({item}) => (<Text>{item.name}</Text>)}
+        renderItem={({item}) => (<FlatListItem title={item.name} />)}
         keyExtractor={item => item.id}
       />
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
