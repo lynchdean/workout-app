@@ -19,8 +19,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#f9c2ff',
     alignSelf: 'stretch',
     textAlign: 'center',
-    flex: 1
-    padding: 50,
+    flex: 1,
+    padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
   },
