@@ -8,6 +8,7 @@ import {
 import { View } from "../components/Themed";
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
+import Separator from "./Separator";
 
 type Props = {
   title: string;
@@ -19,11 +20,7 @@ export default function BottomButtonBar({ title, clickHandler }: Props) {
 
   return (
     <View>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
+      <Separator width="100%" />
       <View
         style={[
           styles.buttonBar,
@@ -37,10 +34,6 @@ export default function BottomButtonBar({ title, clickHandler }: Props) {
 }
 
 const styles = StyleSheet.create({
-  separator: {
-    height: 1,
-    width: "90%",
-  },
   buttonBar: {
     alignItems: "center",
     justifyContent: "center",

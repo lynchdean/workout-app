@@ -1,6 +1,7 @@
 import * as React from "react";
 import { StyleSheet } from "react-native";
 import { Text, View } from "../components/Themed";
+import Separator from "./Separator";
 
 type Props = {
   title: string;
@@ -12,11 +13,7 @@ export default function FlatListItem({ title }: Props) {
       <View style={styles.inner}>
         <Text style={styles.title}>{title}</Text>
       </View>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
+      <Separator width="90%" />
     </View>
   );
 }
@@ -34,9 +31,5 @@ const styles = StyleSheet.create({
   title: {
     textAlign: "center",
     fontSize: 32,
-  },
-  separator: {
-    height: 1,
-    width: "90%",
   },
 });
