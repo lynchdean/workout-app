@@ -1,28 +1,34 @@
-import React, {useState} from 'react'
-import { Button, StyleSheet, StatusBar } from 'react-native';
-import { FlatList } from 'react-native-gesture-handler';
+import React, { useState } from "react";
+import { StyleSheet, StatusBar } from "react-native";
+import { View } from "../components/Themed";
+import { FlatList } from "react-native-gesture-handler";
 
-import { View } from '../components/Themed';
-import Workout from '../components/Workout';
-import FlatListItem from '../components/FlatListItem'
+import Workout from "../components/Workout";
+import FlatListItem from "../components/FlatListItem";
+import BottomButtonBar from "../components/BottomButtonBar";
 
 export default function TabOneScreen() {
   const [workouts, setWorkouts] = useState<Workout[]>([]);
 
   const NewWorkout = () => {
     const id: string = (workouts.length + 1).toString();
-    const newWorkout = new Workout('Workout ' + id, id);
+    const newWorkout = new Workout("Workout " + id, id);
     setWorkouts([...workouts, newWorkout]);
-  }
+  };
 
   return (
     <View style={styles.container}>
-      <FlatList<Workout> style={styles.list}
+      <FlatList<Workout>
+        style={styles.list}
         data={workouts}
-        renderItem={({item}) => (<FlatListItem title={item.name} />)}
-        keyExtractor={item => item.id}
+        renderItem={({ item }) => <FlatListItem title={item.name} />}
+        keyExtractor={(item) => item.id}
       />
-      <Button title="New Workout" onPress={() => NewWorkout()}/>
+
+      <BottomButtonBar
+        title={"New Workout"}
+        clickHandler={() => NewWorkout()}
+      />
     </View>
   );
 }
@@ -33,6 +39,10 @@ const styles = StyleSheet.create({
     marginTop: StatusBar.currentHeight || 0,
   },
   list: {
-    flex: 1
-  }
+    flex: 1,
+  },
+  separator: {
+    height: 1,
+    width: "100%",
+  },
 });
